@@ -14,13 +14,13 @@ add_nodisplay /usr/share/applications/gnome-session-properties.desktop
 sed -i '/^NoDisplay=true/d; /^Type=Application/a NoDisplay=true' /usr/share/applications/org.gnome.TextEditor.desktop
 
 dpkg --add-architecture i386 && apt-get update -y
-apt -y install steam virt-manager gnome-shell-extension-manager default-jdk libgl1 plasma-discover flatpak && apt remove -y firefox
+apt-get -y install steam virt-manager gnome-shell-extension-manager default-jdk libgl1 plasma-discover flatpak && apt-get remove -y firefox
 flatpak remote-add --if-not-exists flathub https://dl.flathub.org/repo/flathub.flatpakrepo && flatpak install -y flathub org.vinegarhq.Sober
 
 snap remove firefox firmware-updater desktop-security-center
 curl -fsSL https://raw.githubusercontent.com/GabiNun/Script/main/brave.sh | sh
 
-curl -o Minecraft.deb https://launcher.mojang.com/download/Minecraft.deb && sudo apt -y install ./Minecraft.deb && rm Minecraft.deb && mkdir -p ~/.local/share/applications && cat > ~/.local/share/applications/minecraft-launcher.desktop <<EOF
+curl -o Minecraft.deb https://launcher.mojang.com/download/Minecraft.deb && apt-get -y install ./Minecraft.deb && rm Minecraft.deb && mkdir -p ~/.local/share/applications && cat > ~/.local/share/applications/minecraft-launcher.desktop <<EOF
 [Desktop Entry]
 Name=Minecraft Launcher
 Comment=Launch Minecraft
