@@ -28,6 +28,7 @@ apt install -y steam virt-manager gnome-shell-extension-manager libgdk-pixbuf2.0
 apt upgrade -y
 
 flatpak remote-add --if-not-exists flathub https://dl.flathub.org/repo/flathub.flatpakrepo
+flatpak install -y flathub org.vinegarhq.Sober
 
 apt remove -y firefox || true
 snap remove firefox || true
