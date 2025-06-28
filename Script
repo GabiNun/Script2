@@ -32,6 +32,7 @@ flatpak remote-add --if-not-exists flathub https://dl.flathub.org/repo/flathub.f
 apt remove -y firefox || true
 snap remove firefox || true
 
+apt-get update && apt-get install -y default-jre
 curl -fsSL -O https://launcher.mojang.com/download/Minecraft.deb
 dpkg -i Minecraft.deb; apt-get install -f; rm Minecraft.deb
 rm -f /usr/share/applications/minecraft-launcher.desktop
