@@ -1,5 +1,5 @@
 #!/bin/sh
-chmod -R 777 /home/gabi
+chmod -R 777 /home/$(logname)
 
 add_nodisplay() {
   file="$1"
@@ -34,4 +34,4 @@ Categories=Game;Application;
 StartupWMClass=minecraft-launcher
 EOF
 
-usermod -aG libvirt "$(whoami)"
+usermod -aG libvirt "$(logname)"
