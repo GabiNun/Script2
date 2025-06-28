@@ -36,28 +36,6 @@ curl -fsSL -O https://launcher.mojang.com/download/Minecraft.deb
 dpkg -i Minecraft.deb; apt-get install -f; rm Minecraft.deb
 rm -f /usr/share/applications/minecraft-launcher.desktop
 
-tee /usr/share/applications/brave-browser.desktop > /dev/null <<'EOF'
-[Desktop Entry]
-Name=Brave Web Browser
-GenericName=Web Browser
-Comment=Access the Internet
-Exec=/usr/bin/brave-browser-stable --ozone-platform=x11 %U
-Terminal=false
-Icon=brave-browser
-Type=Application
-Categories=Network;WebBrowser;
-MimeType=application/pdf;application/rdf+xml;application/rss+xml;application/xhtml+xml;application/xhtml_xml;application/xml;image/gif;image/jpeg;image/png;image/webp;text/html;text/xml;x-scheme-handler/http;x-scheme-handler/https;
-Actions=new-window;new-private-window;
-
-[Desktop Action new-window]
-Name=New Window
-Exec=/usr/bin/brave-browser-stable --ozone-platform=x11
-
-[Desktop Action new-private-window]
-Name=New Incognito Window
-Exec=/usr/bin/brave-browser-stable --ozone-platform=x11 --incognito
-EOF
-
 mkdir -p ~/.local/share/applications
 cat > ~/.local/share/applications/minecraft-launcher.desktop <<EOF
 [Desktop Entry]
