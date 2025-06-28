@@ -11,9 +11,6 @@ add_nodisplay /usr/share/applications/gnome-language-selector.desktop
 add_nodisplay /usr/share/applications/gnome-session-properties.desktop
 
 sed -i '/^NoDisplay=true/d; /^Type=Application/a NoDisplay=true' /usr/share/applications/org.gnome.TextEditor.desktop
-apt install -y apt-transport-https
-curl -fsSL https://brave-browser-apt-release.s3.brave.com/brave-core.asc | gpg --dearmor | tee /usr/share/keyrings/brave-browser-archive-keyring.gpg > /dev/null
-echo "deb [signed-by=/usr/share/keyrings/brave-browser-archive-keyring.gpg] https://brave-browser-apt-release.s3.brave.com/ stable main" | tee /etc/apt/sources.list.d/brave-browser-release.list
 
 apt update -y
 apt install -y software-properties-common dpkg wget
@@ -22,7 +19,7 @@ add-apt-repository multiverse -y
 dpkg --add-architecture i386
 apt update -y
 
-apt install -y steam virt-manager gnome-shell-extension-manager libgdk-pixbuf2.0-0 plasma-discover flatpak brave-browser
+apt install -y steam virt-manager gnome-shell-extension-manager libgdk-pixbuf2.0-0 plasma-discover flatpak
 
 apt upgrade -y
 usermod -aG libvirt "$(whoami)"
@@ -33,6 +30,7 @@ apt remove -y firefox || true
 snap remove firefox || true
 snap remove firmware-updater
 snap remove desktop-security-center
+curl -fsS https://dl.brave.com/install.sh | sh
 
 apt update && sudo apt upgrade -y
 apt install -y default-jdk libgl1
