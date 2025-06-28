@@ -35,7 +35,7 @@ snap remove firmware-updater
 snap remove desktop-security-center
 
 sudo apt update && sudo apt upgrade -y
-sudo apt install -y wget default-jdk libgl1
+sudo apt install -y default-jdk libgl1
 wget -O minecraft.deb "https://launcher.mojang.com/download/Minecraft.deb"
 sudo dpkg -i minecraft.deb || sudo apt --fix-broken install -y
 rm -f /usr/share/applications/minecraft-launcher.desktop; rm minecraft.deb
