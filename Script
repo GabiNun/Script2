@@ -44,6 +44,7 @@ Name=New Incognito Window
 Exec=/usr/bin/brave-browser-stable --ozone-platform=x11 --incognito
 EOF"
 
+sudo rm -f /usr/share/applications/minecraft-launcher.desktop
 cat > ~/.local/share/applications/minecraft-launcher.desktop <<EOF
 [Desktop Entry]
 Name=Minecraft Launcher
