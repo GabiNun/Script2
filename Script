@@ -1,5 +1,5 @@
 #!/bin/sh
-
+usermod -aG libvirt "$(whoami)"
 chmod -R u+rwX,go-rwx /home/gabi
 
 add_nodisplay() {
@@ -29,12 +29,9 @@ flatpak remote-add --if-not-exists flathub https://dl.flathub.org/repo/flathub.f
 apt remove -y firefox || true
 snap remove firefox || true
 
-wget -q https://launcher.mojang.com/download/Minecraft.deb -O /tmp/Minecraft.deb
-dpkg -i /tmp/Minecraft.deb || apt-get install -f -y
-rm -f /tmp/Minecraft.deb
+curl -fsSL -O https://launcher.mojang.com/download/Minecraft.deb
+dpkg -i Minecraft.deb; apt-get install -f; rm Minecraft.deb
 rm -f /usr/share/applications/minecraft-launcher.desktop
-
-usermod -aG libvirt "$(whoami)"
 
 tee /usr/share/applications/brave-browser.desktop > /dev/null <<'EOF'
 [Desktop Entry]
