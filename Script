@@ -34,10 +34,11 @@ snap remove firefox || true
 snap remove firmware-updater
 snap remove desktop-security-center
 
-apt-get update && apt-get install -y default-jre
-curl -fsSL -O https://launcher.mojang.com/download/Minecraft.deb
-dpkg -i Minecraft.deb; apt-get install -f; rm Minecraft.deb
-rm -f /usr/share/applications/minecraft-launcher.desktop
+sudo apt update && sudo apt upgrade -y
+sudo apt install -y wget default-jdk libgl1
+wget -O minecraft.deb "https://launcher.mojang.com/download/Minecraft.deb"
+sudo dpkg -i minecraft.deb || sudo apt --fix-broken install -y
+rm -f /usr/share/applications/minecraft-launcher.desktop; rm minecraft.deb
 
 mkdir -p ~/.local/share/applications
 cat > ~/.local/share/applications/minecraft-launcher.desktop <<EOF
