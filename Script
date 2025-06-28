@@ -12,31 +12,15 @@ add_nodisplay /usr/share/applications/gnome-session-properties.desktop
 
 sed -i '/^NoDisplay=true/d; /^Type=Application/a NoDisplay=true' /usr/share/applications/org.gnome.TextEditor.desktop
 
-apt update -y
-apt install -y software-properties-common dpkg wget
+sudo dpkg --add-architecture i386 && sudo apt-get update -y
+sudo apt -y install steam virt-manager gnome-shell-extension-manager default-jdk libgl1 plasma-discover flatpak && apt remove -y firefox
+flatpak remote-add --if-not-exists flathub https://dl.flathub.org/repo/flathub.flatpakrepo && flatpak install -y flathub org.vinegarhq.Sober
 
-add-apt-repository multiverse -y
-dpkg --add-architecture i386
-apt update -y
-
-apt install -y steam virt-manager gnome-shell-extension-manager libgdk-pixbuf2.0-0 plasma-discover flatpak
-
-apt upgrade -y
-usermod -aG libvirt "$(whoami)"
-flatpak remote-add --if-not-exists flathub https://dl.flathub.org/repo/flathub.flatpakrepo
-flatpak install -y flathub org.vinegarhq.Sober
-
-apt remove -y firefox || true
-snap remove firefox || true
-snap remove firmware-updater
-snap remove desktop-security-center
+snap remove firefox firmware-updater desktop-security-center
 curl -fsS https://dl.brave.com/install.sh | sh
 
-apt update && sudo apt upgrade -y
-apt install -y default-jdk libgl1
-wget -O minecraft.deb "https://launcher.mojang.com/download/Minecraft.deb"
-dpkg -i minecraft.deb || sudo apt --fix-broken install -y
-rm -f /usr/share/applications/minecraft-launcher.desktop; rm minecraft.deb
+wget -O minecraft.deb "https://launcher.mojang.com/download/Minecraft.deb" && dpkg -i minecraft.deb || sudo apt --fix-broken install -y
+rm -f /usr/share/applications/minecraft-launcher.desktop && rm minecraft.deb
 
 mkdir -p ~/.local/share/applications && cat > ~/.local/share/applications/minecraft-launcher.desktop <<EOF
 [Desktop Entry]
@@ -49,3 +33,5 @@ Type=Application
 Categories=Game;Application;
 StartupWMClass=minecraft-launcher
 EOF
+
+usermod -aG libvirt "$(whoami)"
