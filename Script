@@ -1,5 +1,4 @@
-sudo chown -R gabi:gabi /home/gabi
-chmod -R u+rwX /home/gabi
+sudo chmod -R 777 /home/gabi
 sudo sed -i '/^NoDisplay=/d' /usr/share/applications/gnome-language-selector.desktop
 echo 'NoDisplay=true' | sudo tee -a /usr/share/applications/gnome-language-selector.desktop
 sudo sed -i '/^NoDisplay=/d' /usr/share/applications/gnome-session-properties.desktop
