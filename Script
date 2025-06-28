@@ -1,5 +1,4 @@
 #!/bin/sh
-usermod -aG libvirt "$(whoami)"
 chmod -R 777 /home/gabi
 
 add_nodisplay() {
@@ -26,7 +25,7 @@ apt update -y
 apt install -y steam virt-manager gnome-shell-extension-manager libgdk-pixbuf2.0-0 plasma-discover flatpak brave-browser
 
 apt upgrade -y
-
+usermod -aG libvirt "$(whoami)"
 flatpak remote-add --if-not-exists flathub https://dl.flathub.org/repo/flathub.flatpakrepo
 flatpak install -y flathub org.vinegarhq.Sober
 
