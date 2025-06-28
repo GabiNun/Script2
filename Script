@@ -20,7 +20,7 @@ snap remove firefox firmware-updater desktop-security-center
 curl -fsS https://dl.brave.com/install.sh | sh
 
 curl -fsS https://launcher.mojang.com/download/Minecraft.deb | apt -y install ./Minecraft.deb
-rm -f /usr/share/applications/minecraft-launcher.desktop
+rm /usr/share/applications/minecraft-launcher.desktop ./Minecraft.deb
 
 cat > ~/.local/share/applications/minecraft-launcher.desktop <<EOF
 [Desktop Entry]
