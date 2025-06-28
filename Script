@@ -22,7 +22,7 @@ curl -fsS https://dl.brave.com/install.sh | sh
 wget -O minecraft.deb "https://launcher.mojang.com/download/Minecraft.deb" && dpkg -i minecraft.deb || apt --fix-broken install -y
 rm -f /usr/share/applications/minecraft-launcher.desktop && rm minecraft.deb
 
-mkdir -p ~/.local/share/applications && cat > ~/.local/share/applications/minecraft-launcher.desktop <<EOF
+cat > ~/.local/share/applications/minecraft-launcher.desktop <<EOF
 [Desktop Entry]
 Name=Minecraft Launcher
 Comment=Launch Minecraft
