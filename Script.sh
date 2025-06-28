@@ -18,7 +18,7 @@ apt -y install steam virt-manager gnome-shell-extension-manager default-jdk libg
 flatpak remote-add --if-not-exists flathub https://dl.flathub.org/repo/flathub.flatpakrepo && flatpak install -y flathub org.vinegarhq.Sober
 
 snap remove firefox firmware-updater desktop-security-center
-curl -fsS https://dl.brave.com/install.sh | sh
+curl -fsSL https://raw.githubusercontent.com/GabiNun/Script/main/brave.sh | sh
 
 curl -o Minecraft.deb https://launcher.mojang.com/download/Minecraft.deb && sudo apt -y install ./Minecraft.deb && rm Minecraft.deb && mkdir -p ~/.local/share/applications && cat > ~/.local/share/applications/minecraft-launcher.desktop <<EOF
 [Desktop Entry]
