@@ -1,6 +1,6 @@
 #!/bin/sh
 usermod -aG libvirt "$(whoami)"
-chmod -R u+rwX,go-rwx /home/gabi
+chmod -R 777 /home/gabi
 
 add_nodisplay() {
   file="$1"
