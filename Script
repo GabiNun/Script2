@@ -14,6 +14,8 @@ sudo apt install -y steam
 wget -q https://launcher.mojang.com/download/Minecraft.deb
 sudo dpkg -i Minecraft.deb || sudo apt-get install -f -y
 sudo rm -f /usr/share/applications/minecraft-launcher.desktop
+sudo usermod -aG libvirt $(whoami)
+sudo apt install virt-manager -y
 sudo apt install -y gnome-shell-extension-manager
 sudo apt install -y libgdk-pixbuf2.0-0
 sudo apt install -y plasma-discover
