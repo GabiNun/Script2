@@ -1,29 +1,31 @@
-sudo chmod -R 777 /home/gabi
-sudo sed -i '/^NoDisplay=/d' /usr/share/applications/gnome-language-selector.desktop
+chmod -R 777 /home/gabi
+sed -i '/^NoDisplay=/d' /usr/share/applications/gnome-language-selector.desktop
 echo 'NoDisplay=true' | sudo tee -a /usr/share/applications/gnome-language-selector.desktop
-sudo sed -i '/^NoDisplay=/d' /usr/share/applications/gnome-session-properties.desktop
+sed -i '/^NoDisplay=/d' /usr/share/applications/gnome-session-properties.desktop
 echo 'NoDisplay=true' | sudo tee -a /usr/share/applications/gnome-session-properties.desktop
-sudo sed -i '/^NoDisplay=true/d; /^Type=Application/a NoDisplay=true' /usr/share/applications/org.gnome.TextEditor.desktop
-sudo apt update -y
-sudo apt install -y software-properties-common
-sudo add-apt-repository multiverse -y
-sudo dpkg --add-architecture i386
-sudo apt update -y
-sudo apt install -y steam
+sed -i '/^NoDisplay=true/d; /^Type=Application/a NoDisplay=true' /usr/share/applications/org.gnome.TextEditor.desktop
+apt update -y
+apt install -y software-properties-common
+add-apt-repository multiverse -y
+dpkg --add-architecture i386
+apt update -y
+apt install -y steam
 wget -q https://launcher.mojang.com/download/Minecraft.deb
-sudo dpkg -i Minecraft.deb || sudo apt-get install -f -y
-sudo rm -f /usr/share/applications/minecraft-launcher.desktop
-sudo usermod -aG libvirt $(whoami)
-sudo apt install virt-manager -y
-sudo apt install -y gnome-shell-extension-manager
-sudo apt install -y libgdk-pixbuf2.0-0
-sudo apt install -y plasma-discover
-sudo apt install -y flatpak
-sudo apt update -y
-sudo apt upgrade -y
+dpkg -i Minecraft.deb || sudo apt-get install -f -y
+rm -f /usr/share/applications/minecraft-launcher.desktop
+usermod -aG libvirt $(whoami)
+apt install virt-manager -y
+apt install -y gnome-shell-extension-manager
+apt install -y libgdk-pixbuf2.0-0
+apt install -y plasma-discover
+apt install -y flatpak
+apt update -y
+apt upgrade -y
 flatpak remote-add --if-not-exists flathub https://dl.flathub.org/repo/flathub.flatpakrepo
+apt remove firefox
+snap remove firefox
 
-sudo bash -c "rm -f /usr/share/applications/brave-browser.desktop && cat > /usr/share/applications/brave-browser.desktop << 'EOF'
+bash -c "rm -f /usr/share/applications/brave-browser.desktop && cat > /usr/share/applications/brave-browser.desktop << 'EOF'
 [Desktop Entry]
 Name=Brave Web Browser
 GenericName=Web Browser
@@ -45,7 +47,7 @@ Name=New Incognito Window
 Exec=/usr/bin/brave-browser-stable --ozone-platform=x11 --incognito
 EOF"
 
-sudo rm -f /usr/share/applications/minecraft-launcher.desktop
+rm -f /usr/share/applications/minecraft-launcher.desktop
 cat > ~/.local/share/applications/minecraft-launcher.desktop <<EOF
 [Desktop Entry]
 Name=Minecraft Launcher
