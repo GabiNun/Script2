@@ -1,45 +1,27 @@
 #!/bin/sh
+chmod -R 777 /home/$(logname)
 
-echo "Setting permissions..."
-chmod -R 777 /home/$(logname) >/dev/null
-
-echo "Hiding unwanted applications..."
 add_nodisplay() {
   file="$1"
   sed -i '/^NoDisplay=/d' "$file"
   echo 'NoDisplay=true' >> "$file"
 }
+
 add_nodisplay /usr/share/applications/gnome-language-selector.desktop
 add_nodisplay /usr/share/applications/gnome-session-properties.desktop
+
 sed -i '/^NoDisplay=true/d; /^Type=Application/a NoDisplay=true' /usr/share/applications/org.gnome.TextEditor.desktop
 
-echo "Adding i386 architecture and updating..."
-dpkg --add-architecture i386
-apt-get update -y >/dev/null
+dpkg --add-architecture i386 && apt-get update -y
+apt -y install steam virt-manager gnome-shell-extension-manager default-jdk libgl1 plasma-discover flatpak && apt remove -y firefox
+flatpak remote-add --if-not-exists flathub https://dl.flathub.org/repo/flathub.flatpakrepo && flatpak install -y flathub org.vinegarhq.Sober
 
-echo "Installing packages..."
-apt -y install steam virt-manager gnome-shell-extension-manager plasma-discover flatpak
-apt remove -y firefox
-
-echo "Setting up Flatpak..."
-flatpak remote-add --if-not-exists flathub https://dl.flathub.org/repo/flathub.flatpakrepo
-flatpak install -y flathub org.vinegarhq.Sober
-
-echo "Removing Snap packages..."
 snap remove firefox firmware-updater desktop-security-center
-
-echo "Installing Brave browser..."
 curl -fsS https://dl.brave.com/install.sh | sh
 
-echo "Installing Minecraft..."
-curl -o Minecraft.deb https://launcher.mojang.com/download/Minecraft.deb
-apt -y install ./Minecraft.deb
-rm /usr/share/applications/minecraft-launcher.desktop ./Minecraft.deb
+curl -o Minecraft.deb https://launcher.mojang.com/download/Minecraft.deb && apt -y install ./Minecraft.deb && rm /usr/share/applications/minecraft-launcher.desktop ./Minecraft.deb
 
-echo "Creating Minecraft desktop entry..."
-USER_HOME=$(eval echo "~$(logname)")
-mkdir -p "$USER_HOME/.local/share/applications"
-cat > "$USER_HOME/.local/share/applications/minecraft-launcher.desktop" <<EOF
+cat > ~/.local/share/applications/minecraft-launcher.desktop <<EOF
 [Desktop Entry]
 Name=Minecraft Launcher
 Comment=Launch Minecraft
@@ -51,5 +33,4 @@ Categories=Game;Application;
 StartupWMClass=minecraft-launcher
 EOF
 
-echo "Adding user to libvirt group..."
 usermod -aG libvirt "$(logname)"
