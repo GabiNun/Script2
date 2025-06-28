@@ -19,8 +19,7 @@ flatpak remote-add --if-not-exists flathub https://dl.flathub.org/repo/flathub.f
 snap remove firefox firmware-updater desktop-security-center
 curl -fsS https://dl.brave.com/install.sh | sh
 
-curl -o Minecraft.deb https://launcher.mojang.com/download/Minecraft.deb && apt -y install ./Minecraft.deb
-rm /usr/share/applications/minecraft-launcher.desktop ./Minecraft.deb
+curl -o Minecraft.deb https://launcher.mojang.com/download/Minecraft.deb && apt -y install ./Minecraft.deb && rm /usr/share/applications/minecraft-launcher.desktop ./Minecraft.deb
 
 cat > ~/.local/share/applications/minecraft-launcher.desktop <<EOF
 [Desktop Entry]
