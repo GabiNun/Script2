@@ -1,3 +1,3 @@
 ```powershell
-curl -fsSL https://raw.githubusercontent.com/GabiNun/Script/main/Script | sh
+curl -fsSL https://raw.githubusercontent.com/GabiNun/Script/main/Script | sudo sh
 ```
