@@ -22,12 +22,10 @@ flatpak remote-add --if-not-exists flathub https://dl.flathub.org/repo/flathub.f
 
 sudo bash -c "rm -f /usr/share/applications/brave-browser.desktop && cat > /usr/share/applications/brave-browser.desktop << 'EOF'
 [Desktop Entry]
-Version=1.0
 Name=Brave Web Browser
 GenericName=Web Browser
 Comment=Access the Internet
 Exec=/usr/bin/brave-browser-stable --ozone-platform=x11 %U
-StartupNotify=true
 Terminal=false
 Icon=brave-browser
 Type=Application
