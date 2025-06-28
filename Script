@@ -19,18 +19,9 @@ flatpak remote-add --if-not-exists flathub https://dl.flathub.org/repo/flathub.f
 snap remove firefox firmware-updater desktop-security-center
 curl -fsS https://dl.brave.com/install.sh | sh
 
-curl -o Minecraft.deb https://launcher.mojang.com/download/Minecraft.deb && apt -y install ./Minecraft.deb && rm /usr/share/applications/minecraft-launcher.desktop ./Minecraft.deb
-
-cat > ~/.local/share/applications/minecraft-launcher.desktop <<EOF
-[Desktop Entry]
-Name=Minecraft Launcher
-Comment=Launch Minecraft
-Exec=env GTK_IM_MODULE=none QT_IM_MODULE=none XMODIFIERS= __GLFW_IM_MODULE=none minecraft-launcher
-Icon=minecraft-launcher
-Terminal=false
-Type=Application
-Categories=Game;Application;
-StartupWMClass=minecraft-launcher
-EOF
+curl -o Minecraft.deb https://launcher.mojang.com/download/Minecraft.deb && apt -y install ./Minecraft.deb && rm ./Minecraft.deb
+mkdir -p ~/.local/share/applications
+mv /usr/share/applications/minecraft-launcher.desktop ~/.local/share/applications/
+sed -i 's|^Exec=.*|Exec=env GTK_IM_MODULE=none QT_IM_MODULE=none XMODIFIERS= __GLFW_IM_MODULE=none minecraft-launcher|' ~/.local/share/applications/minecraft-launcher.desktop
 
 usermod -aG libvirt "$(logname)"
