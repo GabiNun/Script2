@@ -1,4 +1,3 @@
-#!/bin/bash
 curl -Lo /usr/bin/minecraft-launcher https://github.com/GabiNun/Script/raw/main/minecraft-launcher
 curl -Lo /usr/bin/minecraft-launcher.png https://github.com/GabiNun/Script/raw/main/minecraft-launcher.png
 chmod +x /usr/bin/minecraft-launcher
