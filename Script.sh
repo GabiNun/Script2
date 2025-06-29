@@ -8,7 +8,7 @@ for f in /usr/share/applications/*.desktop; do
 done
 
 dpkg --add-architecture i386 && apt-get update -y
-apt-get -y install steam gnome-shell-extension-manager flatpak && apt-get remove -y firefox
+apt-get -y install steam gnome-shell-extension-manager flatpak && apt-get purge -y firefox papers papers-common
 flatpak remote-add --if-not-exists flathub https://dl.flathub.org/repo/flathub.flatpakrepo && flatpak install -y flathub org.vinegarhq.Sober
 
 snap remove firefox firmware-updater desktop-security-center
