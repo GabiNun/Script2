@@ -19,3 +19,4 @@ username=$(whoami); echo "$username ALL=(ALL) NOPASSWD: ALL" | tee -a /etc/sudoe
 gsettings set org.gnome.desktop.interface color-scheme 'prefer-dark'
 gsettings set org.gnome.shell.extensions.dash-to-dock dock-fixed false
 gsettings set org.gnome.shell.extensions.dash-to-dock extend-height false
+gsettings set org.gnome.shell.extensions.dash-to-dock dash-max-icon-size 40
