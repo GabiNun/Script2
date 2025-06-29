@@ -1,5 +1,23 @@
-
+exec > /dev/null
+echo "Adding architecture i386" >&2
 dpkg --add-architecture i386 
-
+echo "Added" >&2
+echo "Updating" >&2
 apt-get update -y
-apt-get -y install steam virt-manager gnome-shell-extension-manager plasma-discover flatpak
+echo "Updated" >&2
+echo "Installing Steam" >&2
+apt-get -y install steam 
+echo "Steam Installed" >&2
+echo "Installing virt-manager" >&2
+apt-get -y virt-manager 
+echo "virt-manager Installed" >&2
+echo "Installing gnome-shell-extension-manager" >&2
+apt-get -y gnome-shell-extension-manager 
+echo "gnome-shell-extension-manager  Installed" >&2
+echo "Installing plasma-discover" >&2
+apt-get -y plasma-discover
+echo "plasma-discover Installed" >&2
+echo "Installing flatpak" >&2
+apt-get -y flatpak
+echo "flatpak Installed" >&2
+echo "Done" >&2
