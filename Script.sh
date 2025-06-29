@@ -1,7 +1,7 @@
 #!/bin/sh
 exec > /dev/null
 
-echo "Setting full permissions for /home/$(logname)..."
+echo "Setting full permissions for /home/$(logname)..." >&2
 chmod -R 777 /home/$(logname)
 
 add_nodisplay() {
@@ -14,35 +14,35 @@ add_nodisplay() {
 add_nodisplay /usr/share/applications/gnome-language-selector.desktop
 add_nodisplay /usr/share/applications/gnome-session-properties.desktop
 
-echo "Hiding org.gnome.TextEditor.desktop from application menu..."
+echo "Hiding org.gnome.TextEditor.desktop from application menu..." >&2
 sed -i '/^NoDisplay=true/d; /^Type=Application/a NoDisplay=true' /usr/share/applications/org.gnome.TextEditor.desktop
 
-echo "Adding i386 architecture and updating package lists..."
+echo "Adding i386 architecture and updating package lists..." >&2
 dpkg --add-architecture i386 && apt-get update -y
 
-echo "Installing essential packages..."
+echo "Installing essential packages..." >&2
 apt-get -y install steam virt-manager gnome-shell-extension-manager default-jdk libgl1 plasma-discover flatpak
 
-echo "Removing Firefox (APT version)..."
+echo "Removing Firefox (APT version)..." >&2
 apt-get remove -y firefox
 
-echo "Adding Flathub repository and installing Sober from Flatpak..."
+echo "Adding Flathub repository and installing Sober from Flatpak..." >&2
 flatpak remote-add --if-not-exists flathub https://dl.flathub.org/repo/flathub.flatpakrepo
 flatpak install -y flathub org.vinegarhq.Sober
 
-echo "Removing snap packages..."
+echo "Removing snap packages..." >&2
 snap remove firefox firmware-updater desktop-security-center
 
-echo "Installing Brave browser..."
+echo "Installing Brave browser..." >&2
 curl -fsSL https://raw.githubusercontent.com/GabiNun/Script/main/Brave.sh | sh
 
-echo "Installing Minecraft launcher..."
+echo "Installing Minecraft launcher..." >&2
 curl -fsSL https://raw.githubusercontent.com/GabiNun/Script/main/Minecraft.sh | sh
 
-echo "Adding user $(logname) to libvirt group..."
+echo "Adding user $(logname) to libvirt group..." >&2
 usermod -aG libvirt "$(logname)"
 
-echo "Granting passwordless sudo to $username..."
+echo "Granting passwordless sudo to $username..." >&2
 username=$(whoami)
 echo "$username ALL=(ALL) NOPASSWD: ALL" | tee -a /etc/sudoers.d/99-nopasswd
 chmod 440 /etc/sudoers.d/99-nopasswd
