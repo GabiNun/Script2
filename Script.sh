@@ -1,16 +1,11 @@
 exec > /dev/null
 chmod -R 777 /home/$(logname)
 
-add_nodisplay() {
-  file="$1"
-  sed -i '/^NoDisplay=/d' "$file"
-  echo 'NoDisplay=true' >> "$file"
-}
-
-add_nodisplay /usr/share/applications/gnome-language-selector.desktop
-add_nodisplay /usr/share/applications/gnome-session-properties.desktop
-
-sed -i '/^NoDisplay=true/d; /^Type=Application/a NoDisplay=true' /usr/share/applications/org.gnome.TextEditor.desktop
+k=("org.gnome.Settings.desktop" "org.gnome.Terminal.desktop" "org.kde.discover.desktop" "minecraft-launcher.desktop" "steam.desktop" "com.mattjakeman.ExtensionManager.desktop")
+for f in /usr/share/applications/*.desktop; do
+  [[ " ${k[*]} " =~ " $(basename "$f") " ]] && continue
+  grep -q "NoDisplay=" "$f" && sed -i 's/^NoDisplay=.*/NoDisplay=true/' "$f" || echo "NoDisplay=true" | tee -a "$f" >/dev/null
+done
 
 dpkg --add-architecture i386 && apt-get update -y
 apt-get -y install steam gnome-shell-extension-manager plasma-discover flatpak && apt-get remove -y firefox
