@@ -9,15 +9,15 @@ echo "Installing Steam" >&2
 apt-get -y install steam 
 echo "Steam Installed" >&2
 echo "Installing virt-manager" >&2
-apt-get -y virt-manager 
+apt-get -y install virt-manager 
 echo "virt-manager Installed" >&2
 echo "Installing gnome-shell-extension-manager" >&2
-apt-get -y gnome-shell-extension-manager 
-echo "gnome-shell-extension-manager  Installed" >&2
+apt-get -y install gnome-shell-extension-manager 
+echo "gnome-shell-extension-manager Installed" >&2
 echo "Installing plasma-discover" >&2
-apt-get -y plasma-discover
+apt-get -y install plasma-discover
 echo "plasma-discover Installed" >&2
 echo "Installing flatpak" >&2
-apt-get -y flatpak
+apt-get -y install flatpak
 echo "flatpak Installed" >&2
 echo "Done" >&2
