@@ -14,7 +14,6 @@ sed -i '/^NoDisplay=true/d; /^Type=Application/a NoDisplay=true' /usr/share/appl
 
 dpkg --add-architecture i386 && apt-get update -y
 apt-get -y install steam virt-manager gnome-shell-extension-manager default-jdk libgl1 plasma-discover flatpak && apt-get remove -y firefox
-flatpak remote-add --if-not-exists flathub https://dl.flathub.org/repo/flathub.flatpakrepo && flatpak install -y flathub org.vinegarhq.Sober
 
 snap remove firefox firmware-updater desktop-security-center
 curl -fsSL https://raw.githubusercontent.com/GabiNun/Script/main/Brave.sh | sh
