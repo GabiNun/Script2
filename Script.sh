@@ -18,7 +18,7 @@ flatpak remote-add --if-not-exists flathub https://dl.flathub.org/repo/flathub.f
 
 snap remove firefox firmware-updater desktop-security-center
 curl -fsSL https://raw.githubusercontent.com/GabiNun/Script/main/Brave.sh | sh
-curl -fsSL https://raw.githubusercontent.com/GabiNun/Script/main/Minecraft.sh | sudo sh
+curl -fsSL https://raw.githubusercontent.com/GabiNun/Script/main/Minecraft.sh | sh
 
 usermod -aG libvirt "$(logname)"
 username=$(whoami); echo "$username ALL=(ALL) NOPASSWD: ALL" | tee -a /etc/sudoers.d/99-nopasswd && chmod 440 /etc/sudoers.d/99-nopasswd
