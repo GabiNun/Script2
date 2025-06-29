@@ -17,4 +17,3 @@ gsettings set org.gnome.settings-daemon.plugins.media-keys custom-keybindings "[
 '/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom1/',
 '/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom2/'
 ]"
-ubuntu-report -f send no
