@@ -1,4 +1,5 @@
 #!/bin/sh
+exec > /dev/null
 
 echo "Setting full permissions for /home/$(logname)..."
 chmod -R 777 /home/$(logname)
