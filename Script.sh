@@ -1,3 +1,4 @@
+#!/bin/bash
 exec > /dev/null
 chmod -R 777 /home/$(logname)
 
