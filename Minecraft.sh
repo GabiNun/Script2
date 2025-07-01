@@ -5,7 +5,7 @@ cat > /usr/share/applications/minecraft-launcher.desktop <<EOF
 Name=Minecraft Launcher
 Comment=Custom Minecraft launcher
 Exec=env GTK_IM_MODULE=none QT_IM_MODULE=none XMODIFIERS= __GLFW_IM_MODULE=none /usr/bin/minecraft-launcher
-Icon=/usr/bin/minecraft-launcher.png
+Icon=/usr/bin/minecraft-launcher.svg
 Terminal=false
 Type=Application
 Categories=Game;
