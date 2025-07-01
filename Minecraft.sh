@@ -3,7 +3,7 @@ curl -so /usr/bin/minecraft-launcher.svg https://raw.githubusercontent.com/GabiN
 cat > /usr/share/applications/minecraft-launcher.desktop <<EOF
 [Desktop Entry]
 Name=Minecraft Launcher
-Comment=Custom Minecraft launcher
+Comment=Minecraft launcher
 Exec=env GTK_IM_MODULE=none QT_IM_MODULE=none XMODIFIERS= __GLFW_IM_MODULE=none /usr/bin/minecraft-launcher
 Icon=/usr/bin/minecraft-launcher.svg
 Terminal=false
