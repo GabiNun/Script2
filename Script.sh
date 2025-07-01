@@ -1,6 +1,5 @@
 exec > /dev/null
-chmod -R 777 /home/$(logname)
-chmod -R 777 /media/$(logname)
+chmod -R 777 /home/$(logname) && chmod -R 777 /media/$(logname)
 
 k=("org.gnome.Settings.desktop" "org.gnome.Terminal.desktop")
 for f in /usr/share/applications/*.desktop; do
