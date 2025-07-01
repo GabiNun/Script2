@@ -9,4 +9,5 @@ Icon=/usr/bin/minecraft-launcher.svg
 Terminal=false
 Type=Application
 Categories=Game;
+StartupWMClass=Minecraft 1.21.7
 EOF
