@@ -11,3 +11,14 @@ Type=Application
 Categories=Game;
 StartupWMClass=Minecraft 1.21.7
 EOF
+
+cat > /usr/share/applications/minecraft-game.desktop <<EOF
+[Desktop Entry]
+Name=Minecraft Game
+Exec=/usr/bin/minecraft-launcher
+Icon=/usr/bin/minecraft-launcher.svg
+Type=Application
+StartupWMClass=Minecraft 1.21.7
+Categories=Game;
+NoDisplay=true
+EOF
