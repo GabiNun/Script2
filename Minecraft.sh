@@ -9,12 +9,12 @@ Icon=/usr/bin/minecraft-launcher.svg
 Terminal=false
 Type=Application
 Categories=Game;
-StartupWMClass=Minecraft 1.21.7
+StartupWMClass=Minecraft Launcher
 EOF
 
 cat > /usr/share/applications/minecraft-game.desktop <<EOF
 [Desktop Entry]
-Name=Minecraft Game
+Name=Minecraft 1.21.7
 Exec=/usr/bin/minecraft-launcher
 Icon=/usr/bin/minecraft-launcher.svg
 Type=Application
