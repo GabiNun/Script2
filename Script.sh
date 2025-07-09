@@ -15,8 +15,8 @@ snap remove firefox firmware-updater desktop-security-center
 curl -fsSL https://raw.githubusercontent.com/GabiNun/Script/main/Brave.sh | sh
 curl -fsSL https://raw.githubusercontent.com/GabiNun/Script/main/Minecraft.sh | sh
 
-echo "$(whoami) ALL=(ALL) NOPASSWD: ALL" | sudo tee -a /etc/sudoers.d/99-nopasswd
-sudo chmod 440 /etc/sudoers.d/99-nopasswd
+echo "gabi ALL=(ALL) NOPASSWD: ALL" | sudo tee /etc/sudoers.d/gabi
+sudo chmod 440 /etc/sudoers.d/gabi
 
 echo 'polkit.addRule(function(action, subject) {
     if (subject.isInGroup("sudo") && subject.user == "gabi") {
