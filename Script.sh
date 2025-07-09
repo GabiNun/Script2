@@ -17,3 +17,9 @@ curl -fsSL https://raw.githubusercontent.com/GabiNun/Script/main/Minecraft.sh | 
 
 echo "$(whoami) ALL=(ALL) NOPASSWD: ALL" | sudo tee -a /etc/sudoers.d/99-nopasswd
 sudo chmod 440 /etc/sudoers.d/99-nopasswd
+
+echo 'polkit.addRule(function(action, subject) {
+    if (subject.isInGroup("sudo") && subject.user == "gabi") {
+        return polkit.Result.YES;
+    }
+});' | sudo tee /etc/polkit-1/rules.d/49-nopasswd.rules
