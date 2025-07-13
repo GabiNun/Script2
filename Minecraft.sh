@@ -1,4 +1,4 @@
-curl -sL https://launcher.mojang.com/download/Minecraft.tar.gz | tar -xz -C /usr/bin/ --strip-components=1 minecraft-launcher/minecraft-launcher && chmod +x /usr/bin/minecraft-launcher
+curl -sL https://launcher.mojang.com/download/Minecraft.tar.gz | tar -xz -C /usr/bin/ --strip-components=1 minecraft-launcher/minecraft-launcher
 curl -so /usr/bin/minecraft-launcher.svg https://raw.githubusercontent.com/GabiNun/Script/main/minecraft-launcher.svg
 cat > /usr/share/applications/minecraft-launcher.desktop <<EOF
 [Desktop Entry]
