@@ -1,5 +1,5 @@
 exec > /dev/null
-chmod -R 777 /home/$(logname)
+chmod -R 777 /home/$(logname) && chmod -R 777 /media
 
 k=("org.gnome.Settings.desktop")
 for f in /usr/share/applications/*.desktop; do
