@@ -1,7 +1,7 @@
 exec > /dev/null
 chmod -R 777 /home/$(logname)
 
-k=("org.gnome.Settings.desktop" "org.gnome.Terminal.desktop")
+k=("org.gnome.Settings.desktop")
 for f in /usr/share/applications/*.desktop; do
   [[ " ${k[*]} " =~ " $(basename "$f") " ]] && continue
   grep -q "NoDisplay=" "$f" && sed -i 's/^NoDisplay=.*/NoDisplay=true/' "$f" || echo "NoDisplay=true" | tee -a "$f" >/dev/null
