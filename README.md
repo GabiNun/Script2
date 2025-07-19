@@ -1,5 +1,6 @@
 ```powershell
-curl -fsSL https://raw.githubusercontent.com/GabiNun/Script/main/Script.sh | sudo bash
+curl -fsSL raw.githubusercontent.com/GabiNun/Script/main/Script.sh | sudo bash
+wget -qO- raw.githubusercontent.com/GabiNun/Script/main/Script.sh | sudo bash
 ```
 # Private Repository
 
