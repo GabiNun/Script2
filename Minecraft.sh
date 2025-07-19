@@ -14,11 +14,11 @@ EOF
 
 cat > /usr/share/applications/minecraft-game.desktop <<EOF
 [Desktop Entry]
-Name=Minecraft 1.21.7
+Name=Minecraft 1.21.8
 Exec=/usr/bin/minecraft-launcher
 Icon=/usr/bin/minecraft-launcher.svg
 Type=Application
-StartupWMClass=Minecraft 1.21.7
+StartupWMClass=Minecraft 1.21.8
 Categories=Game;
 NoDisplay=true
 EOF
